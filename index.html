@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Risk Assessment AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🏦 Credit Risk Assessment AI</h1>
+            <p class="subtitle">Advanced machine learning model for loan default prediction</p>
+        </header>
+
+        <main class="main-content">
+            <div class="form-container">
+                <h2 class="form-title">Loan Application Assessment</h2>
+                <form id="predictionForm" class="prediction-form">
+                    <div class="form-section">
+                        <h3>Personal Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="person_age">Age</label>
+                                <input type="number" id="person_age" name="person_age" min="18" max="100" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="person_income">Annual Income ($)</label>
+                                <input type="number" id="person_income" name="person_income" min="0" step="1000" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="person_emp_length">Employment Length (years)</label>
+                                <input type="number" id="person_emp_length" name="person_emp_length" min="0" max="50" step="0.1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="education">Education Level</label>
+                                <select id="education" name="education" required>
+                                    <option value="">Select education level</option>
+                                    <option value="High School">High School</option>
+                                    <option value="Some College">Some College</option>
+                                    <option value="Bachelor's">Bachelor's Degree</option>
+                                    <option value="Master's">Master's Degree</option>
+                                    <option value="PhD">PhD</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Loan Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="loan_amnt">Loan Amount ($)</label>
+                                <input type="number" id="loan_amnt" name="loan_amnt" min="0" step="1000" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="loan_term">Loan Term (months)</label>
+                                <select id="loan_term" name="loan_term" required>
+                                    <option value="">Select loan term</option>
+                                    <option value="12">12 months</option>
+                                    <option value="24">24 months</option>
+                                    <option value="36">36 months</option>
+                                    <option value="48">48 months</option>
+                                    <option value="60">60 months</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="loan_int_rate">Interest Rate (%)</label>
+                                <input type="number" id="loan_int_rate" name="loan_int_rate" min="0" max="30" step="0.1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="loan_intent">Loan Purpose</label>
+                                <select id="loan_intent" name="loan_intent" required>
+                                    <option value="">Select loan purpose</option>
+                                    <option value="DEBT_CONSOLIDATION">Debt Consolidation</option>
+                                    <option value="HOME_IMPROVEMENT">Home Improvement</option>
+                                    <option value="MAJOR_PURCHASE">Major Purchase</option>
+                                    <option value="MEDICAL">Medical</option>
+                                    <option value="MOVING">Moving</option>
+                                    <option value="OTHER">Other</option>
+                                    <option value="SMALL_BUSINESS">Small Business</option>
+                                    <option value="VACATION">Vacation</option>
+                                    <option value="WEDDING">Wedding</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Credit Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="credit_score">Credit Score</label>
+                                <input type="number" id="credit_score" name="credit_score" min="300" max="850" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cb_person_cred_hist_length">Credit History Length (years)</label>
+                                <input type="number" id="cb_person_cred_hist_length" name="cb_person_cred_hist_length" min="0" max="50" step="0.1" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="loan_grade">Loan Grade</label>
+                                <select id="loan_grade" name="loan_grade" required>
+                                    <option value="">Select loan grade</option>
+                                    <option value="A">A (Excellent)</option>
+                                    <option value="B">B (Good)</option>
+                                    <option value="C">C (Fair)</option>
+                                    <option value="D">D (Poor)</option>
+                                    <option value="E">E (Very Poor)</option>
+                                    <option value="F">F (Extremely Poor)</option>
+                                    <option value="G">G (Worst)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="cb_person_default_on_file">Previous Default</label>
+                                <select id="cb_person_default_on_file" name="cb_person_default_on_file" required>
+                                    <option value="">Select default history</option>
+                                    <option value="Y">Yes (Has defaulted before)</option>
+                                    <option value="N">No (No previous defaults)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="loan_percent_income">Debt-to-Income Ratio (%)</label>
+                                <input type="number" id="loan_percent_income" name="loan_percent_income" min="0" max="100" step="0.1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="number_of_accounts">Number of Credit Accounts</label>
+                                <input type="number" id="number_of_accounts" name="number_of_accounts" min="0" max="50" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Additional Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="person_home_ownership">Home Ownership</label>
+                                <select id="person_home_ownership" name="person_home_ownership" required>
+                                    <option value="">Select home ownership</option>
+                                    <option value="RENT">Rent</option>
+                                    <option value="OWN">Own</option>
+                                    <option value="MORTGAGE">Mortgage</option>
+                                    <option value="OTHER">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="verification_status">Income Verification Status</label>
+                                <select id="verification_status" name="verification_status" required>
+                                    <option value="">Select verification status</option>
+                                    <option value="VERIFIED">Verified</option>
+                                    <option value="SOURCE_VERIFIED">Source Verified</option>
+                                    <option value="NOT_VERIFIED">Not Verified</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <span class="btn-text">Assess Credit Risk</span>
+                            <span class="btn-loading" style="display: none;">Processing...</span>
+                        </button>
+                        <button type="button" class="clear-btn" id="clearBtn">Clear Form</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="results-container" id="resultsContainer" style="display: none;">
+                <h2 class="results-title">Assessment Results</h2>
+                <div class="result-card" id="resultCard">
+                    <div class="risk-indicator" id="riskIndicator">
+                        <div class="risk-icon" id="riskIcon"></div>
+                        <div class="risk-text" id="riskText"></div>
+                    </div>
+                    <div class="probability-display">
+                        <h3>Default Probability</h3>
+                        <div class="probability-bar">
+                            <div class="probability-fill" id="probabilityFill"></div>
+                        </div>
+                        <span class="probability-value" id="probabilityValue"></span>
+                    </div>
+                    <div class="recommendation" id="recommendation"></div>
+                    <div class="confidence-note">
+                        <p>This assessment is based on machine learning analysis of historical loan data patterns.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Credit Risk Assessment AI. Powered by XGBoost Machine Learning.</p>
+        </footer>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
