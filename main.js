@@ -61,6 +61,16 @@ function setupEventListeners() {
             field.addEventListener('blur', () => validateField(fieldName));
         }
     });
+    
+    // Auto-calculate loan percentage
+    const loanAmountField = document.getElementById('loan_amnt');
+    const annualIncomeField = document.getElementById('person_income');
+    const loanPercentageField = document.getElementById('loan_percent_income');
+    
+    if (loanAmountField && annualIncomeField && loanPercentageField) {
+        loanAmountField.addEventListener('input', calculateLoanPercentage);
+        annualIncomeField.addEventListener('input', calculateLoanPercentage);
+    }
 }
 
 // Setup form validation
@@ -333,3 +343,17 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Calculate loan percentage of income
+function calculateLoanPercentage() {
+    const loanAmount = parseFloat(document.getElementById('loan_amnt').value) || 0;
+    const annualIncome = parseFloat(document.getElementById('person_income').value) || 0;
+    const loanPercentageField = document.getElementById('loan_percent_income');
+    
+    if (annualIncome > 0) {
+        const percentage = loanAmount / annualIncome; // No multiplication by 100
+        loanPercentageField.value = percentage.toFixed(2);
+    } else {
+        loanPercentageField.value = '';
+    }
+}

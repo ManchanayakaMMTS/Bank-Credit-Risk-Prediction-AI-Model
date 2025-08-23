@@ -20,96 +20,88 @@
         <main class="main-content">
             <div class="form-container">
                 <form id="creditForm" class="credit-form">
-                    <div class="form-grid">
-                        <!-- Personal Information Section -->
-                        <div class="form-section">
-                            <h3>👤 Personal Information</h3>
-                            <div class="input-group">
-                                <label for="person_age">Age</label>
-                                <input type="number" id="person_age" name="person_age" min="18" max="100" required>
-                            </div>
-                            <div class="input-group">
-                                <label for="person_income">Annual Income ($)</label>
-                                <input type="number" id="person_income" name="person_income" min="1000" max="1000000" required>
-                            </div>
-                            <div class="input-group">
-                                <label for="person_emp_length">Employment Length (years)</label>
-                                <input type="number" id="person_emp_length" name="person_emp_length" min="0" max="50" step="0.1" required>
-                            </div>
+                    <div class="form-grid-compact">
+                        <!-- Row 1: Basic Info -->
+                        <div class="input-group">
+                            <label for="person_age">Age</label>
+                            <input type="number" id="person_age" name="person_age" min="18" max="100" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="person_income">Annual Income ($)</label>
+                            <input type="number" id="person_income" name="person_income" min="1000" max="1000000" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="loan_amnt">Loan Amount ($)</label>
+                            <input type="number" id="loan_amnt" name="loan_amnt" min="100" max="1000000" required>
                         </div>
 
-                        <!-- Loan Details Section -->
-                        <div class="form-section">
-                            <h3>💰 Loan Details</h3>
-                            <div class="input-group">
-                                <label for="loan_amnt">Loan Amount ($)</label>
-                                <input type="number" id="loan_amnt" name="loan_amnt" min="100" max="1000000" required>
-                            </div>
-                            <div class="input-group">
-                                <label for="loan_int_rate">Interest Rate (%)</label>
-                                <input type="number" id="loan_int_rate" name="loan_int_rate" min="1" max="30" step="0.1" required>
-                            </div>
-                            <div class="input-group">
-                                <label for="loan_percent_income">Loan % of Income</label>
-                                <input type="number" id="loan_percent_income" name="loan_percent_income" min="0.1" max="100" step="0.1" required>
-                            </div>
+                        <!-- Row 2: Loan Details -->
+                        <div class="input-group">
+                            <label for="loan_int_rate">Interest Rate (%)</label>
+                            <input type="number" id="loan_int_rate" name="loan_int_rate" min="1" max="30" step="0.1" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="loan_percent_income">Loan/Income Ratio (Auto-calculated)</label>
+                            <input type="number" id="loan_percent_income" name="loan_percent_income" min="0.01" max="10" step="0.01" required readonly>
+                            <small class="field-note">Calculated from loan amount ÷ annual income (e.g., 0.59 = 59% of income)</small>
+                        </div>
+                        <div class="input-group">
+                            <label for="loan_grade">Loan Grade</label>
+                            <select id="loan_grade" name="loan_grade" required>
+                                <option value="">Select Grade</option>
+                                <option value="A">A (Excellent)</option>
+                                <option value="B">B (Good)</option>
+                                <option value="C">C (Fair)</option>
+                                <option value="D">D (Poor)</option>
+                                <option value="E">E (Very Poor)</option>
+                                <option value="F">F (Risky)</option>
+                                <option value="G">G (Very Risky)</option>
+                            </select>
                         </div>
 
-                        <!-- Credit Information Section -->
-                        <div class="form-section">
-                            <h3>📊 Credit Information</h3>
-                            <div class="input-group">
-                                <label for="cb_person_cred_hist_length">Credit History Length (years)</label>
-                                <input type="number" id="cb_person_cred_hist_length" name="cb_person_cred_hist_length" min="0" max="50" step="0.1" required>
-                            </div>
-                            <div class="input-group">
-                                <label for="loan_grade">Loan Grade</label>
-                                <select id="loan_grade" name="loan_grade" required>
-                                    <option value="">Select Grade</option>
-                                    <option value="A">A (Excellent)</option>
-                                    <option value="B">B (Good)</option>
-                                    <option value="C">C (Fair)</option>
-                                    <option value="D">D (Poor)</option>
-                                    <option value="E">E (Very Poor)</option>
-                                    <option value="F">F (Risky)</option>
-                                    <option value="G">G (Very Risky)</option>
-                                </select>
-                            </div>
-                            <div class="input-group">
-                                <label for="cb_person_default_on_file">Previous Default</label>
-                                <select id="cb_person_default_on_file" name="cb_person_default_on_file" required>
-                                    <option value="">Select Status</option>
-                                    <option value="N">No Previous Default</option>
-                                    <option value="Y">Has Previous Default</option>
-                                </select>
-                            </div>
+                        <!-- Row 3: Employment & Credit -->
+                        <div class="input-group">
+                            <label for="person_emp_length">Employment Length (years)</label>
+                            <input type="number" id="person_emp_length" name="person_emp_length" min="0" max="50" step="0.1" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="cb_person_cred_hist_length">Credit History (years)</label>
+                            <input type="number" id="cb_person_cred_hist_length" name="cb_person_cred_hist_length" min="0" max="50" step="0.1" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="cb_person_default_on_file">Previous Default</label>
+                            <select id="cb_person_default_on_file" name="cb_person_default_on_file" required>
+                                <option value="">Select Status</option>
+                                <option value="N">No Previous Default</option>
+                                <option value="Y">Has Previous Default</option>
+                            </select>
                         </div>
 
-                        <!-- Additional Details Section -->
-                        <div class="form-section">
-                            <h3>🏠 Additional Details</h3>
-                            <div class="input-group">
-                                <label for="person_home_ownership">Home Ownership</label>
-                                <select id="person_home_ownership" name="person_home_ownership" required>
-                                    <option value="">Select Status</option>
-                                    <option value="RENT">Rent</option>
-                                    <option value="OWN">Own</option>
-                                    <option value="MORTGAGE">Mortgage</option>
-                                    <option value="OTHER">Other</option>
-                                </select>
-                            </div>
-                            <div class="input-group">
-                                <label for="loan_intent">Loan Purpose</label>
-                                <select id="loan_intent" name="loan_intent" required>
-                                    <option value="">Select Purpose</option>
-                                    <option value="DEBTCONSOLIDATION">Debt Consolidation</option>
-                                    <option value="EDUCATION">Education</option>
-                                    <option value="HOMEIMPROVEMENT">Home Improvement</option>
-                                    <option value="MEDICAL">Medical</option>
-                                    <option value="PERSONAL">Personal</option>
-                                    <option value="VENTURE">Business Venture</option>
-                                </select>
-                            </div>
+                        <!-- Row 4: Home & Purpose -->
+                        <div class="input-group">
+                            <label for="person_home_ownership">Home Ownership</label>
+                            <select id="person_home_ownership" name="person_home_ownership" required>
+                                <option value="">Select Status</option>
+                                <option value="RENT">Rent</option>
+                                <option value="OWN">Own</option>
+                                <option value="MORTGAGE">Mortgage</option>
+                                <option value="OTHER">Other</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="loan_intent">Loan Purpose</label>
+                            <select id="loan_intent" name="loan_intent" required>
+                                <option value="">Select Purpose</option>
+                                <option value="DEBTCONSOLIDATION">Debt Consolidation</option>
+                                <option value="EDUCATION">Education</option>
+                                <option value="HOMEIMPROVEMENT">Home Improvement</option>
+                                <option value="MEDICAL">Medical</option>
+                                <option value="PERSONAL">Personal</option>
+                                <option value="VENTURE">Business Venture</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <!-- Empty space to maintain grid alignment -->
                         </div>
                     </div>
 
