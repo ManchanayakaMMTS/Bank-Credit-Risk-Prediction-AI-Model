@@ -197,31 +197,4 @@ credit-risk-ai/
 └── README.md             # This file
 ```
 
-## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- Built with XGBoost for robust machine learning
-- Flask framework for reliable web services
-- Modern web technologies for responsive UI
-
-## 📞 Support
-
-For support and questions:
-- Create an issue on GitHub
-- Check the documentation
-- Review the code examples
-
----
-
-**Built with ❤️ for the AI/ML community**
