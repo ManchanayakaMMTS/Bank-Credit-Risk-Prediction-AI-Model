@@ -1,0 +1,15 @@
+artifact_uri: /Users/sasandamanahara/Desktop/AI/Bank-Credit-Risk-Prediction-AI-Model/mlruns/436246338683785731/3daf2d284b104d9eb4b92bc304927308/artifacts
+end_time: 1757237171374
+entry_point_name: ''
+experiment_id: '436246338683785731'
+lifecycle_stage: active
+run_id: 3daf2d284b104d9eb4b92bc304927308
+run_name: xgb_1757237169
+run_uuid: 3daf2d284b104d9eb4b92bc304927308
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1757237169983
+status: 3
+tags: []
+user_id: sasandamanahara
