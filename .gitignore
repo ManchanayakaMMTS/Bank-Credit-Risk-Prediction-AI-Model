@@ -29,7 +29,7 @@ env.bak/
 venv.bak/
 
 # Model files (these are large and should be downloaded separately)
-*.joblib
+
 *.pkl
 *.pickle
 *.h5
