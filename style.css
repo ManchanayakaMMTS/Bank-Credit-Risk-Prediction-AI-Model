@@ -279,6 +279,17 @@ body {
     border-left: 4px solid #667eea;
 }
 
+.result-rationale {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #4a5568;
+    margin-bottom: 20px;
+    padding: 12px;
+    background: #edf2f7;
+    border-radius: 6px;
+    border-left: 4px solid #a3bffa;
+}
+
 .result-details {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));

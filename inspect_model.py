@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
 import joblib
 import pandas as pd
+import os
 
 try:
+    # Resolve model directory relative to this file
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    model_dir = os.path.join(base_dir, 'model')
+
     # Load the preprocessor
     print("Loading preprocessor...")
-    preprocessor = joblib.load('preprocessor.joblib')
+    preprocessor = joblib.load(os.path.join(model_dir, 'preprocessor.joblib'))
     print("✅ Preprocessor loaded successfully")
     
     # Load the model
     print("Loading XGBoost model...")
-    model = joblib.load('final_xgb_model.joblib')
+    model = joblib.load(os.path.join(model_dir, 'final_xgb_model.joblib'))
     print("✅ XGBoost model loaded successfully")
     
     # Check preprocessor structure

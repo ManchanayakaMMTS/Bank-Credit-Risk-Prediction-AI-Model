@@ -1,3 +1,5 @@
+
+
 // DOM elements
 const creditForm = document.getElementById('creditForm');
 const predictBtn = document.getElementById('predictBtn');
@@ -14,6 +16,7 @@ const riskLevel = document.getElementById('riskLevel');
 const probabilityFill = document.getElementById('probabilityFill');
 const probabilityText = document.getElementById('probabilityText');
 const resultMessage = document.getElementById('resultMessage');
+const resultRationale = document.getElementById('resultRationale');
 const predictionValue = document.getElementById('predictionValue');
 const probabilityValue = document.getElementById('probabilityValue');
 
@@ -191,6 +194,12 @@ function displayResults(result) {
     
     // Set result message
     resultMessage.textContent = result.message;
+    if (result.rationale) {
+        resultRationale.textContent = `Why: ${result.rationale}`;
+        resultRationale.style.display = 'block';
+    } else if (resultRationale) {
+        resultRationale.style.display = 'none';
+    }
     
     // Set detail values
     predictionValue.textContent = result.prediction === 1 ? 'Default Risk' : 'Low Risk';
