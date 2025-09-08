@@ -55,9 +55,9 @@ pip install -r requirements.txt
 ```
 
 ### 3. Add Your Model Files
-Place your trained model files in the project directory:
-- `preprocessor.joblib` - Data preprocessing pipeline
-- `final_xgb_model.joblib` - Trained XGBoost model
+Place your trained model files under the `model/` directory:
+- `model/preprocessor.joblib` - Data preprocessing pipeline
+- `model/final_xgb_model.joblib` - Trained XGBoost model
 
 ### 4. Start the Application
 
